@@ -11,7 +11,7 @@ const submitRide = (ride: object) => {
         console.log(error.response);
         return false;
     })
-    
+    console.log(result);
     return result;   
 }
 
