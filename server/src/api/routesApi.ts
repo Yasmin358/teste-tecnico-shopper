@@ -1,7 +1,8 @@
-require('dotenv').config();
-const googleApi = process.env.GOOGLE_API_KEY;
+import 'dotenv/config';
+
 
 const computeRoute =  async (route: {origin: string, destination: string}) => {
+    const googleApi = process.env.GOOGLE_API_KEY;
     const {origin, destination} = route;
     const request = await fetch(`https://routes.googleapis.com/directions/v2:computeRoutes?key=${googleApi}`, {
         method: 'POST',
@@ -15,6 +16,7 @@ const computeRoute =  async (route: {origin: string, destination: string}) => {
             "destination": {
               destination
             },
+            "travelMode": "DRIVE"
         })
     })
     const requestJson = await request.json();

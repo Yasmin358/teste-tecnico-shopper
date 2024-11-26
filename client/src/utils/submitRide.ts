@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const submitRide = (ride: object) => {
-    const result = axios.post(`http://localhost:8080/ride/estimate/`, ride)
+    console.log(ride);
+    const result = axios.post(`http://localhost:8080/ride/estimate`, ride)
     .then((response) => response.data)
     .then((data) => {
         console.log(data);
@@ -11,7 +12,6 @@ const submitRide = (ride: object) => {
         console.log(error.response);
         return false;
     })
-    console.log(result);
     return result;   
 }
 

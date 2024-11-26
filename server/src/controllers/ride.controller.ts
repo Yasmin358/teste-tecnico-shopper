@@ -1,17 +1,14 @@
 import { Request, Response } from 'express';
-
+import RideService from '../services/ride.service';
 import computeRoute from '../api/routesApi';
 
-export default class RideController {
-    constructor(
-     // private rideService = new RideService(),
-    ) {}
-    
-    findAll = async (req: Request, res: Response) => {
-        const newRide = req.body;
-        const result = await computeRoute(newRide);
-        return res.status(200).json(result);
-    }
+const findAll = async (req: Request, res: Response) => 
+{
+    const newRide = req.body;
+    console.log(newRide);
+    const result = await computeRoute(newRide);
+    return res.status(200).json(result);
+}
     /*
     createRide = async (req: Request, res: Response) => {
         const newRide = req.body;
@@ -25,5 +22,5 @@ export default class RideController {
         if (type === '200') return res.status(200).json(message);
         return res.status(404).json({ message });
     };*/
-} 
+export { findAll };
     

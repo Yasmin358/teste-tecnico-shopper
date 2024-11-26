@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+// import { submitRide } from '../utils/submitRide.ts';
+import rideContext from "../context/rideContext.tsx";
+
 
 export default function Form() {
+  const context = useContext(rideContext);
   const [input, setInput] = useState({ customer_id: '', origin: '', destination: '' });
   const [invalidLogin, setInvalidLogin] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -12,14 +16,33 @@ export default function Form() {
     }
   }
   
-  const handleSubmit = (event: any) => {
+  const handleSubmit = async (event: any) => {
       event.preventDefault();
       validateForm();
+      /* const {origin, destination} = input;
+      const result = await submitRide({ origin, destination});
+      
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${googlekey}`)
+      
+      .then((responseText) => {
+          return responseText.json();
+      })
+      .then(jsonData => {
+          console.log(jsonData);
+      })
+      .catch(error => {
+          console.log(error);
+
+      })
+      
+      
+      console.log(result);  */ 
+      context?.setActiveStep(2);
   };
   
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { target } = event;
-    setInput({ ...input, [target.name]: target.value });
+    setInput({...input, [target.name]: target.value });
   };
   
   return (
@@ -27,10 +50,10 @@ export default function Form() {
         {invalidLogin && (
             <h4 className='error'>{errorMessage}</h4>
         )}
-        <label htmlFor="costumer_id" className="label-id">
+        <label htmlFor="customer_id" className="label-id">
             <span className="text">ID *</span>
             <input
-              name="costumer_id"
+              name="customer_id"
               type="text"
               onChange={ handleInput }
               className="input-id"
