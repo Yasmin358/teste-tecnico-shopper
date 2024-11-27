@@ -8,20 +8,20 @@ const computeRoute =  async (route: {origin: string, destination: string}) => {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
+        'X-Goog-FieldMask': 'routes.legs.startLocation.latLng, routes.legs.endLocation.latLng,routes.duration,routes.distanceMeters,',
         },
         body: JSON.stringify({
             "origin": {
-              origin
+              "address": origin
             },
             "destination": {
-              destination
+              "address": destination
             },
             "travelMode": "DRIVE"
         })
     })
     const requestJson = await request.json();
-    console.log(requestJson);
-    return requestJson.results;
+    return requestJson;
 };
 
 export default computeRoute;

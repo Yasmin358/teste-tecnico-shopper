@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-// import { submitRide } from '../utils/submitRide.ts';
+import { submitRide } from '../utils/submitRide.ts';
 import rideContext from "../context/rideContext.tsx";
-
+import '../styles/form.css';
 
 export default function Form() {
   const context = useContext(rideContext);
@@ -11,42 +11,28 @@ export default function Form() {
   
   const validateForm = () => {
     if(input.customer_id.length === 0 || input.destination.length === 0 || input.destination.length === 0 ) {
-        setErrorMessage('* Este Campo é obrigatório');
+        setErrorMessage('Todos os campos são obrigatórios');
         setInvalidLogin(true);
     }
   }
   
   const handleSubmit = async (event: any) => {
       event.preventDefault();
-      validateForm();
-      /* const {origin, destination} = input;
-      const result = await submitRide({ origin, destination});
+      const {origin, destination, customer_id} = input;
+      const result = await submitRide({customer_id, origin, destination});
       
-      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${googlekey}`)
-      
-      .then((responseText) => {
-          return responseText.json();
-      })
-      .then(jsonData => {
-          console.log(jsonData);
-      })
-      .catch(error => {
-          console.log(error);
-
-      })
-      
-      
-      console.log(result);  */ 
-      context?.setActiveStep(2);
+      console.log(result);
+      // context?.setActiveStep(2);
   };
   
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInvalidLogin(false);
     const { target } = event;
     setInput({...input, [target.name]: target.value });
   };
   
   return (
-      <form onSubmit={ handleSubmit } className="match-settings-form">
+      <form onSubmit={ handleSubmit } className="request-ride-form">
         {invalidLogin && (
             <h4 className='error'>{errorMessage}</h4>
         )}
@@ -60,7 +46,7 @@ export default function Form() {
             />
         </label>
       <label htmlFor="origin" className="label-origin">
-            <span className="text">Endereço de Origen *</span>
+            <span className="text">Endereço de Origem *</span>
             <input
               name="origin"
               type="text"
@@ -79,7 +65,7 @@ export default function Form() {
       </label>
       <button
         type="submit"
-        name="request-ride"
+        className="request-ride-button"
       >
         Solicitar Viagem
       </button>

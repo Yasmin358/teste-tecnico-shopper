@@ -1,6 +1,6 @@
-import * as express from 'express';
+import express from 'express';
 import router from './src/routes/ride.route';
-import * as cors from 'cors';
+import cors from 'cors';
 
 
 const app = express();

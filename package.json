@@ -6,8 +6,10 @@
   "scripts": {
         "install": "cd client && npm install && cd ../server && npm install",
         "start": "npm run server",
-        "server": "nodemon server/app.js",
-        "client": "npm start"
+        "server": "cd ../server && nodemon server/app.js",
+        "client": "npm start",
+        "compose:up": "docker-compose up -d --build",
+        "compose:down": "docker-compose down --remove-orphans"
   },
   "keywords": [],
   "author": "",

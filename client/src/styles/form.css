@@ -1,0 +1,51 @@
+.request-ride-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.request-ride-form label {
+    display: flex;
+    flex-direction: column;
+}
+
+.request-ride-form input {
+    background-color: #dde4ea7c;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: hsla(224, 23%, 16%, 0.8);
+    font-family: Poppins , sans-serif;
+    height: 40px;
+    margin-bottom: 8px;
+    padding-left: 8px;
+    width: 290px;
+}
+
+.request-ride-form input:focus-visible {
+    border: none;
+    border-bottom: 2px solid #FFCE5C;
+    outline: none;
+}
+
+.request-ride-button {
+  background-color: #FFCE5C;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  cursor: pointer;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 40px;
+  margin: 10px 0;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 300px;
+}
+
+.error {
+    background-color: #f79ba2;
+    color: #b80514;
+    font-weight: 400;
+    padding: 5px;
+}

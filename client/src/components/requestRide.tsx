@@ -5,7 +5,7 @@ import '../styles/requestRide.css';
 export default function RequestRide() {
     return (
         <section className='request-ride-container'>
-            <h1>Solicitar Viagem</h1>
+            <h1>TaxiApp</h1>
             <Form />
         </section>
     );
