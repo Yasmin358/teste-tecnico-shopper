@@ -9,7 +9,7 @@ const submitRide = (ride: object) => {
         return true;
     })
     .catch((error) => {
-        console.log(error.response);
+        console.log(error.response.data);
         return false;
     })
     return result;   

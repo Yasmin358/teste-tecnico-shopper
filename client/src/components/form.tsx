@@ -18,7 +18,7 @@ export default function Form() {
   
   const handleSubmit = async (event: any) => {
       event.preventDefault();
-      const {origin, destination, customer_id} = input;
+      const {customer_id, origin, destination } = input;
       const result = await submitRide({customer_id, origin, destination});
       
       console.log(result);

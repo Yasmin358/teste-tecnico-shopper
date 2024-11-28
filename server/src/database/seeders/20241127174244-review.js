@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('drivers', [
+    await queryInterface.bulkInsert('reviews', [
         {
           comment: 'Motorista simpático, mas errou o caminho 3 vezes. O carro cheira a donuts.',
           rating: 2,

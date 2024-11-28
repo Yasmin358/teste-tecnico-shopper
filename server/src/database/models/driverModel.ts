@@ -6,7 +6,7 @@ class Driver extends Model {
     declare name: string;
     declare description: string;
     declare vehicle: string;
-    declare taxa: number;
+    declare rate: number;
     declare KmMinimo: number;
 }
 
@@ -40,7 +40,7 @@ Driver.init({
 },
     {
         sequelize: db, 
-        modelName: 'driver',
+        modelName: 'drivers',
         timestamps: false,
     },
 );

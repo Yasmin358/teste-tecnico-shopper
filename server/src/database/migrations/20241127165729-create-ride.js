@@ -42,7 +42,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'drive',
+          model: 'drivers',
           key: 'id',
         },
         onUpdate: 'CASCADE',
